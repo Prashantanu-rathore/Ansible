@@ -1,0 +1,14 @@
+---
+- hosts: managednodes
+  become: yes
+  become_method: sudo
+  tasks:
+  - name:  Automated reboot
+    cron:
+      name: "a job for reboot"
+      minute: "0"
+      hour: "23"
+      day: "*"
+      month: "*"
+      weekday: "0"
+      job: "/sbin/reboot"
